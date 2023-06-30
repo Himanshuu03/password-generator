@@ -13,8 +13,8 @@ const allCheckBox = document.querySelectorAll('input[type=checkbox]');
 
 let password = "";
 let passwordLength = 10;
-let checkCount = 1;
-let symbols = '!@#$%^&*()_+{}|[]:";,./'
+let checkCount = 0;
+let symbols = "@#$%^&*()_+{}|[]:';,./"
 handleSlider();
 function handleSlider(){
     sliderLength.value = passwordLength;
@@ -38,9 +38,8 @@ function getLowerCase(){
 }
 function getSymbol(){
     let rndNum = getNumber(0,symbols.length);
-    return symbols.charAt[rndNum];
+    return symbols[rndNum];
 }
-
 async function copyText(){
     try {
         await navigator.clipboard.writeText(displayData.value);
@@ -87,5 +86,20 @@ allCheckBox.forEach((checkbox)=>{
 })
 
 genButton.addEventListener('click',()=>{
-
+    if(checkCount == 0){return} 
+    if(checkCount > passwordLength){
+        passwordLength = checkCount;
+        handleSlider();
+    }
+    password = " ";
+    let funArr = [];
+    if(upperCase.checked) funArr.push(getUpperCase);
+    if(lowerCase.checked) funArr.push(getLowerCase);
+    if(number.checked) funArr.push(getNumber);
+    if(symbol.checked) funArr.push(getSymbol);
+    for(let i=0;i<passwordLength;i++){
+        var index = getRandomInt(0,checkCount);
+        password += funArr[index]();
+    }
+    displayData.value = password;
 })
