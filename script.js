@@ -70,9 +70,6 @@ copyData.addEventListener('click',()=>{
         copyText();
     }
 })
-allCheckBox.forEach((checkbox)=>{
-    checkbox.addEventListener('change',handleChange);
-})
 function handleChange(){
     checkCount = 0;
     allCheckBox.forEach((checkbox)=>{
@@ -85,6 +82,9 @@ function handleChange(){
         handleSlider();
     }
 }
+allCheckBox.forEach((checkbox)=>{
+    checkbox.addEventListener('change',handleChange);
+})
 
 genButton.addEventListener('click',()=>{
 
