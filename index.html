@@ -4,8 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>password generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <div class="wrapper">
+        <h1>PASSWORD GENERATOR</h1>
+        <div class="displayText">
+            <input readonly placeholder="Password" class="display" data-display>
+            <button>
+                <i class="fa fa-copy"></i>
+            </button>
+        </div>
+        <div class="password-generator">
+            <div class="length-container">
+                <p>Password Length</p>
+                <p data-length>0</p>
+            </div>
+            <input type="range" min="1" max="20" class="slider" step="1" data-slide-section>
+            <div>
+                <input id="uppercase" type="checkbox">
+                <label for="uppercase">Include Uppercase letters</label>
+            </div>
+            <div>
+                <input id="lowercase" type="checkbox">
+                <label for="lowercase">Include lowercase letters</label>
+            </div>
+            <div>
+                <input id="number" type="checkbox">
+                <label for="number">Include Number</label>
+            </div>
+            <div>
+                <input id="symbol" type="checkbox">
+                <label for="symbol">Include Symbol</label>
+            </div>
+            <div class="strength-container">
+                <p>Strength</p>
+                <div data-indicator></div>
+            </div>
+            <button class="generatorButton">GENERATOR PASSWORD</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
