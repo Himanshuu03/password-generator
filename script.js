@@ -84,7 +84,8 @@ function handleChange(){
 allCheckBox.forEach((checkbox)=>{
     checkbox.addEventListener('change',handleChange);
 })
-
+function shufflePassword(pass){
+}
 genButton.addEventListener('click',()=>{
     if(checkCount == 0){return} 
     if(checkCount > passwordLength){
@@ -97,9 +98,13 @@ genButton.addEventListener('click',()=>{
     if(lowerCase.checked) funArr.push(getLowerCase);
     if(number.checked) funArr.push(getNumber);
     if(symbol.checked) funArr.push(getSymbol);
-    for(let i=0;i<passwordLength;i++){
+    for(let i=0;i<funArr.length;i++){
+        password += funArr[i]();
+    }
+    for(let i=0;i<passwordLength-funArr.length;i++){
         var index = getRandomInt(0,checkCount);
         password += funArr[index]();
     }
+    password = shufflePassword(Array.from(password));
     displayData.value = password;
 })
