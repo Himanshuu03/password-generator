@@ -17,9 +17,16 @@ let checkCount = 0;
 let symbols = "@#$%^&*()_+{}|[]:';,./"
 handleSlider();
 function handleSlider(){
+    sliderLength.value=passwordLength;
     sliderDisplay.innerText = passwordLength;
+    const min = sliderLength.min;
+    const max = sliderLength.max;
+    const backSize = (passwordLength-min)*100/(max-min);
+    str = `${backSize}% 100%`;
+    console.log(str);
+    sliderLength.style.backgroundSize =str;
 }
-
+handleSlider();
 function setIndicator(color){
     strength.style.backgroundColor = color;
     strength.style.boxShadow = `0px 0px 20px${color}`
@@ -52,10 +59,11 @@ async function copyText(){
         copyMsg.classList.remove('active');
     },2000)
 }
-sliderLength.addEventListener('input',(e) => {
-        passwordLength = e.target.value;
-        handleSlider();
-})
+
+sliderLength.addEventListener('input', (e) => {
+    passwordLength = e.target.value;
+    handleSlider();
+  });
 
 
 //our logic for slider
@@ -117,7 +125,7 @@ genButton.addEventListener('click',()=>{
         passwordLength = checkCount;
         handleSlider();
     }
-    password = " ";
+    password ="";
     let funArr = [];
     if(upperCase.checked) funArr.push(getUpperCase);
     if(lowerCase.checked) funArr.push(getLowerCase);

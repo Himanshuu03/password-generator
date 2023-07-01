@@ -4,6 +4,9 @@
     padding :0;
     font-family:sans-serif;
 }
+:root {
+    --vb-violet: hsl(285, 91%, 52%);
+}
 body{
     background: rgb(169,66,226);
     background: linear-gradient(90deg, rgba(169,66,226,1) 0%, rgba(80,45,112,1) 100%, rgba(26,87,180,1) 100%);
@@ -64,6 +67,8 @@ body{
     top: 50%;
     right: 1.5rem;
     transform: translateY(-50%);
+    background: none;
+    border: none;
 }
 
 .password-generator{
@@ -139,3 +144,78 @@ body{
     position: relative;
     border-radius: 0.35rem;
 }
+.check input:checked{
+    background-color: cyan;
+}
+.check input:checked::before{
+    content: '✓';
+    position: absolute;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 600;
+    left: 50%;
+    top :-3.5px;
+    transform: translateX(-60%) translateY(-4%);
+}
+.check label{
+    color: white;
+    font-size: 1.25rem;
+    letter-spacing: 0.75px;
+}
+
+.slider{
+    appearance: none;
+    width:100%;
+    height: 0.75rem;
+    cursor: pointer;
+    background-color: rgb(28, 26, 28);
+    border-radius: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    background-image: linear-gradient(var(--vb-violet), var(--vb-violet));
+    background-repeat: no-repeat;
+    border:none;
+    outline:none;
+    z-index:-1;
+}
+.slider::-webkit-slider-thumb{
+    position:relative;
+    z-index:1;
+    appearance: none;
+    height:2rem;
+    width:2rem;
+    border-radius: 50%;
+    background-color:yellow;
+    cursor:pointer;
+    margin-top: -3px;
+    box-shadow: 0px 0px 20px 0px yellow;
+    transition: all 100ms ease-in;
+}
+.slider:focus{
+    outline: 3px solid yellow;
+}
+.slider::-webkit-slider-thumb:hover{
+    outline :2px solid yellow;
+    background-color: rgb(25,2,38);
+    box-shadow: 0px 0px 20px yellow ;
+
+}
+
+.tooltip {
+    position: absolute;
+    background-color: rgb(205,26,180);
+    color: yellow;
+    font-size: 1.25rem;
+    top: -35px;
+    left: -25px;
+    padding: 5px 10px;
+    border-radius: 1rem;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: bottom;
+    transition: all 250ms ease-in-out;
+  }
+  .active {
+    opacity: 1;
+    transform: scale(1);
+  }
