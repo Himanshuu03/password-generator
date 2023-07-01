@@ -1,0 +1,141 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding :0;
+    font-family:sans-serif;
+}
+body{
+    background: rgb(169,66,226);
+    background: linear-gradient(90deg, rgba(169,66,226,1) 0%, rgba(80,45,112,1) 100%, rgba(26,87,180,1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.wrapper{
+    width: 90%;
+    max-width: 450px;
+}
+.wrapper h1{
+    color: white;
+    font-weight: bold;
+    opacity: 0.75;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    text-align: center;
+}
+.displayText{
+    position: relative;
+    background: linear-gradient(90deg, rgba(60,4,91,1) 31%, rgba(80,45,112,1) 100%, rgba(26,87,180,1) 100%);
+    border-radius: 1rem;
+    border-bottom: 0.35rem solid rgb(25,2,38);
+    margin: 1rem 0;
+    padding-top: 0.35rem ;
+}
+.display{ 
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    padding: 1.15rem 1rem;
+    color: yellow;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 30px;
+    letter-spacing: 1px;
+    padding-right: 3.25rem;
+    border:none;   
+}
+.display::placeholder{
+    color: yellow;
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 30px;
+    opacity: 0.65;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    transform: translateY(-50%);
+}
+.displayText button{
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+}
+
+.password-generator{
+    width: 100%;
+    background: linear-gradient(90deg, rgba(60,4,91,1) 31%, rgba(80,45,112,1) 100%, rgba(26,87,180,1) 100%);
+    border-radius: 1rem;
+    padding: 1rem;
+    border-bottom: 0.35rem solid rgb(25,2,38);
+}
+.length-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.length-container p:nth-child(1){
+    color: white;
+    font-size: 1.5rem;
+}
+.length-container p:nth-child(2){
+    color: yellow;
+    font-size: 1.5rem;
+}
+
+.strength-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.strength-container :nth-child(1){
+    color: white;
+    font-size: 1.5rem;
+}
+
+.strength-container :nth-child(2){
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 20px whitesmoke;
+}
+
+.generatorButton{
+    width: 100%;
+    background: rgb(205,26,180);
+    background: linear-gradient(90deg, rgba(205,26,180,1) 40%, rgba(201,61,224,1) 96%);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: yellow;
+    text-align: center;
+    border-radius: 0.75rem;
+    border-bottom: 0.35rem solid yellow;
+    padding: 1rem 0;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.check{
+    display: flex;
+    align-items: center;
+    margin:1rem 0;
+    gap:0 1rem;
+}
+
+.check input{
+    appearance: none;
+    width:20px;
+    height: 20px;
+    border: 1px solid cyan;
+    cursor: pointer;
+    position: relative;
+    border-radius: 0.35rem;
+}

@@ -17,12 +17,12 @@ let checkCount = 0;
 let symbols = "@#$%^&*()_+{}|[]:';,./"
 handleSlider();
 function handleSlider(){
-    sliderLength.value = passwordLength;
     sliderDisplay.innerText = passwordLength;
 }
 
 function setIndicator(color){
-    strength.computedStyleMap.backgroundColor = color;
+    strength.style.backgroundColor = color;
+    strength.style.boxShadow = `0px 0px 20px${color}`
 }
 function getRandomInt(min,max){
     return (Math.floor(Math.random()*(max-min)))+min;
@@ -85,6 +85,31 @@ allCheckBox.forEach((checkbox)=>{
     checkbox.addEventListener('change',handleChange);
 })
 function shufflePassword(pass){
+    for(let i =pass.length-1; i>=0;i--){
+        var index = Math.floor(Math.random()*i+1);
+        var temp = pass[i];
+        pass[i] = pass[index];
+        pass[index] = temp;
+    }
+    var str="";
+    pass.forEach((e)=>{str=str+e});
+    return str;
+}
+function calcStrngth(){
+    let hasUpper,hasLower,hasNum,hasSym;
+    if(upperCase.checked) hasUpper = true;
+    if(lowerCase.checked) hasLower = true;
+    if(number.checked) hasNum = true;
+    if(symbol.checked) hasSym = true;
+    if (hasUpper && hasLower && (hasNum || hasSym) && passwordLength >= 8) {
+        setIndicator("#0f0");
+      }
+      else if ((hasLower || hasUpper) &&(hasNum || hasSym) &&passwordLength >= 6){
+        setIndicator("#ff0");
+      } 
+      else {
+        setIndicator("#f00");
+      }
 }
 genButton.addEventListener('click',()=>{
     if(checkCount == 0){return} 
@@ -107,4 +132,5 @@ genButton.addEventListener('click',()=>{
     }
     password = shufflePassword(Array.from(password));
     displayData.value = password;
+    calcStrngth();
 })

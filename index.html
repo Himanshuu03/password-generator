@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>password generator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
@@ -13,7 +14,7 @@
             <input readonly placeholder="Password" class="display" data-display>
             <button data-copy-button>
                 <span data-copy-message></span>
-                <i class="fa fa-copy"></i>
+                <img src="asset/copy.svg" width="23" height="23">
             </button>
         </div>
         <div class="password-generator">
@@ -22,19 +23,19 @@
                 <p data-length>0</p>
             </div>
             <input type="range" min="1" max="20" class="slider" step="1" data-slide-section>
-            <div>
+            <div class="check">
                 <input id="uppercase" type="checkbox">
                 <label for="uppercase">Include Uppercase letters</label>
             </div>
-            <div>
+            <div class="check">
                 <input id="lowercase" type="checkbox">
                 <label for="lowercase">Include lowercase letters</label>
             </div>
-            <div>
+            <div class="check">
                 <input id="number" type="checkbox">
                 <label for="number">Include Number</label>
             </div>
-            <div>
+            <div class="check">
                 <input id="symbol" type="checkbox">
                 <label for="symbol">Include Symbol</label>
             </div>
